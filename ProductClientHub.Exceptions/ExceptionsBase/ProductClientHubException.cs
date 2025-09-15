@@ -1,4 +1,6 @@
-﻿namespace ProductClientHub.Exceptions.ExceptionsBase;
+﻿using System.Net;
+
+namespace ProductClientHub.Exceptions.ExceptionsBase;
 
 //a classe é transformada em exceção após ser feito a herança de SystemException
 //essa é uma excessão customizada
@@ -12,5 +14,6 @@ public abstract class ProductClientHubException : SystemException
 
     //função que não tem um corpo
     public abstract List<string> GetErrors();
+    public abstract HttpStatusCode GetHttpStatusCode();
 }
 
