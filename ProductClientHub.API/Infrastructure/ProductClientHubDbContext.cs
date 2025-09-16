@@ -19,8 +19,8 @@ public class ProductClientHubDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         //aqui é onde se configura a conexão com o banco de dados, nesse caso, está sendo usado o SQLite como banco de dados
-        // precisa separar as pastas com 2 barras invertidas \\
-        optionsBuilder.UseSqlite("Data Source=‪C: \\Users\\ander\\Documents\\Estudos\\C#\\C# e .NET - Curso Introdutório\\ProductClientHubDB (1).db");
+        optionsBuilder.UseSqlite("Data Source=C:\\Users\\ander\\Documents\\Estudos\\C#\\C# e .NET - Curso Introdutório\\ProductClientHubDB (1).db");
+
     }
 }
 
