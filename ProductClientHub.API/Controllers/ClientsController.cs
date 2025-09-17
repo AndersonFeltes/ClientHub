@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProductClientHub.API.UseCases.Clients.GetAll;
 using ProductClientHub.API.UseCases.Clients.Register;
+using ProductClientHub.API.UseCases.Clients.Update;
 using ProductClientHub.Communication.Requests;
 using ProductClientHub.Communication.Responses;
 
@@ -29,9 +30,20 @@ namespace ProductClientHub.API.Controllers
         }
 
         [HttpPut]
-        public IActionResult Update()
+        [Route("{id}")]
+
+        //linha identificando o código 204 (NoContent) como uma possível resposta dessa rota
+        //requisição que não retorna nada
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        //linha identificando o código 404 (NotFound) como uma possível resposta dessa rota
+        [ProducesResponseType(typeof(ResponseErrosMessageJson), StatusCodes.Status404NotFound)]
+        public IActionResult Update([FromRoute] Guid id,[FromBody] RequestClientJson request)
         {
-            return Ok();
+            var UseCase = new UpdateClientUseCase();
+
+            UseCase.Execute(id, request);
+
+            return NoContent();
         }
 
         [HttpGet]
@@ -56,7 +68,7 @@ namespace ProductClientHub.API.Controllers
         }
 
         [HttpGet]
-        [Route("{id}/Anderson/{sobrenome}" )]
+        [Route("{id}")]
         public IActionResult GetById([FromRoute] Guid id, string sobrenome)
         {
             return Ok();

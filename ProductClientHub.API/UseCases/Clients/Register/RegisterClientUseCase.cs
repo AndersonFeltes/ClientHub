@@ -1,5 +1,6 @@
 ﻿using ProductClientHub.API.Entities;
 using ProductClientHub.API.Infrastructure;
+using ProductClientHub.API.UseCases.Clients.SharedValidator;
 using ProductClientHub.Communication.Requests;
 using ProductClientHub.Communication.Responses;
 using ProductClientHub.Exceptions.ExceptionsBase;
@@ -36,7 +37,7 @@ namespace ProductClientHub.API.UseCases.Clients.Register;
         private void Validate(RequestClientJson request)
         {
             //variavel criada para chamar a função de validação dos parametros
-            var validator = new RegisterClientValidator();
+            var validator = new RequestClientValidator();
 
             //variavel criada para receber o resultado da validação
             var result = validator.Validate(request);
