@@ -8,7 +8,7 @@ namespace ProductClientHub.API.UseCases.Clients.Register;
 
     public class RegisterClientUseCase
     {
-        public ResponseClientJson Execute(RequestClientJson request)
+        public ResponseShortClientJson Execute(RequestClientJson request)
         {
         //chama a função que valida os parametros da requisição
         Validate(request);
@@ -26,7 +26,7 @@ namespace ProductClientHub.API.UseCases.Clients.Register;
         //salva as alterações no banco de dados
         dbContext.SaveChanges();
 
-        return new ResponseClientJson
+        return new ResponseShortClientJson
         {
             Id = enttity.Id,
             Name = enttity.Name,
