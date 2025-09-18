@@ -3,7 +3,7 @@ using ProductClientHub.Exceptions.ExceptionsBase;
 
 namespace ProductClientHub.API.UseCases.Products.Delete;
 
-public class DeletClienteUseCase
+public class DeleteClienteUseCase
 {
     public void Execute(Guid id)
     {
