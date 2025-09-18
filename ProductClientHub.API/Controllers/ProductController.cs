@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProductClientHub.API.UseCases.Clients.Register;
+using ProductClientHub.API.UseCases.Products.Delete;
 using ProductClientHub.API.UseCases.Products.Register;
 using ProductClientHub.Communication.Requests;
 using ProductClientHub.Communication.Responses;
@@ -29,5 +30,16 @@ public class ProductController : ControllerBase
         var response = useCase.Execute(clientId, request);
         //retorna o produto registrado com o código 201 (Created)
         return Created(string.Empty, response);
+    }
+
+    [HttpDelete]
+    [Route("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    public IActionResult Delete([FromRoute] Guid id)
+    {
+        //lógica para deletar o produto pelo id
+        var useCase = new DeleteProductUseCase();
+        useCase.Execute(id);
+        return NoContent();
     }
 }
