@@ -77,9 +77,16 @@ namespace ProductClientHub.API.Controllers
         }
 
         [HttpDelete]
+        [Route("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(typeof(ResponseErrosMessageJson), StatusCodes.Status404NotFound)]
         public IActionResult Delete()
         {
-            return Ok();
+            var useCase = new DeletClienteUseCase();
+
+            useCase.Execute();
+
+            return NoContent();
         }
     }
 }
