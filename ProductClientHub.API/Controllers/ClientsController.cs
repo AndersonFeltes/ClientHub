@@ -35,6 +35,8 @@ namespace ProductClientHub.API.Controllers
         //linha identificando o código 204 (NoContent) como uma possível resposta dessa rota
         //requisição que não retorna nada
         [ProducesResponseType(StatusCodes.Status204NoContent)]
+        //linha identificando o código 400 (BadRequest) como uma possível resposta dessa rota
+        [ProducesResponseType(typeof(ResponseErrosMessageJson), StatusCodes.Status400BadRequest)]
         //linha identificando o código 404 (NotFound) como uma possível resposta dessa rota
         [ProducesResponseType(typeof(ResponseErrosMessageJson), StatusCodes.Status404NotFound)]
         public IActionResult Update([FromRoute] Guid id,[FromBody] RequestClientJson request)
