@@ -22,6 +22,4 @@ Uma API REST desenvolvida em **C#/.NET** para gerenciamento de **clientes** e **
 ---
 
 ## ▶️ Como executar
-1. Clone este repositório:
-   ```bash
-   git clone https://github.com/seu-usuario/seu-repo.git
+1. Clone este repositório
